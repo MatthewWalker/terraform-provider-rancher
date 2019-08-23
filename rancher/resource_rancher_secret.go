@@ -93,7 +93,7 @@ func resourceRancherSecretRead(d *schema.ResourceData, meta interface{}) error {
 	}
 
 	secret, err := client.Secret.ById(d.Id())
-	if err != nil {
+	if err != nil || secret == nil {
 		return err
 	}
 

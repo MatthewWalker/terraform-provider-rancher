@@ -143,7 +143,7 @@ func resourceRancherCertificateRead(d *schema.ResourceData, meta interface{}) er
 	}
 
 	certificate, err := client.Certificate.ById(d.Id())
-	if err != nil {
+	if err != nil || certificate == nil {
 		return err
 	}
 
